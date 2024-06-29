@@ -1,8 +1,11 @@
 package main
 
 import (
+	"YeonwooSung/search-and-go/db"
 	"YeonwooSung/search-and-go/middlewares"
 	"YeonwooSung/search-and-go/routes"
+	"YeonwooSung/search-and-go/utils"
+
 	"fmt"
 	"log"
 	"os"
@@ -31,7 +34,9 @@ func main() {
 	})
 
 	middlewares.SetMiddlewares(app)
+	db.InitDB()
 	routes.SetRoutes(app)
+	utils.StartCronJobs()
 
 	// Start our server and listen for a shutdown
 	go func() {
