@@ -18,8 +18,8 @@ type User struct {
 
 func (u *User) CreateAdmin() error {
 	user := User{
-		Email:    "your email",
-		Password: "your password",
+		Email:    "neos960518@gmail.com",
+		Password: "qwer1234",
 		IsAdmin:  true,
 	}
 	// Hash Password & update user
