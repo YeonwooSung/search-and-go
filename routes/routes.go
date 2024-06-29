@@ -28,6 +28,11 @@ type settingsform struct {
 	AddNew   bool `form:"addNew"`
 }
 
+/**
+ * SetRoutes sets the routes for the application
+ *
+ * @param app *fiber.App
+ */
 func SetRoutes(app *fiber.App) {
 	app.Get("/", func(c *fiber.Ctx) error {
 		return render(c, views.Home())
