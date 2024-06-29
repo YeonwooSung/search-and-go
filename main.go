@@ -4,6 +4,7 @@ import (
 	"YeonwooSung/search-and-go/db"
 	"YeonwooSung/search-and-go/middlewares"
 	"YeonwooSung/search-and-go/routes"
+	"YeonwooSung/search-and-go/search"
 	"YeonwooSung/search-and-go/utils"
 
 	"fmt"
@@ -22,12 +23,15 @@ func main() {
 	if env != nil {
 		panic("cannot find environment variables")
 	}
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = ":4000"
 	} else {
 		port = ":" + port
 	}
+
+	init_from_csv := os.Getenv("INIT_FROM_CSV")
 
 	app := fiber.New(fiber.Config{
 		IdleTimeout: 5 * time.Second,
@@ -36,6 +40,9 @@ func main() {
 	middlewares.SetMiddlewares(app)
 	db.InitDB()
 	routes.SetRoutes(app)
+	if init_from_csv == "true" {
+		search.InitEngineFromCsvDataset()
+	}
 	utils.StartCronJobs()
 
 	// Start our server and listen for a shutdown

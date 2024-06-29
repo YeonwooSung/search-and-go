@@ -3,8 +3,54 @@ package search
 import (
 	"YeonwooSung/search-and-go/db"
 	"fmt"
+	"log"
+	"os"
 	"time"
+
+	"encoding/csv"
+
+	"github.com/go-gota/gota/dataframe"
 )
+
+func InitEngineFromCsvDataset() {
+	// Open the CSV file
+	file, err := os.Open("URL_Classification.csv")
+	if err != nil {
+		log.Fatalf("Error opening file: %s", err)
+	}
+	defer file.Close()
+
+	// Create a new CSV reader reading from the opened file
+	reader := csv.NewReader(file)
+
+	// Read in all of the CSV records
+	records, err := reader.ReadAll()
+	if err != nil {
+		log.Fatalf("Error reading CSV: %s", err)
+	}
+
+	// Convert CSV records to a dataframe
+	df := dataframe.LoadRecords(records)
+
+	// Iterate over each row in the dataframe
+	for _, row := range df.Records() {
+		// Assuming "url" column is the first column (index 0)
+		url := row[1] // Adjust index as per your CSV structure
+
+		// Print or process the URL value
+		fmt.Println("URL:", url)
+
+		// Save the URL to the database (crawled_urls table)
+		crawledUrl := db.CrawledUrl{Url: url}
+		err := crawledUrl.Save()
+		if err != nil {
+			// log.Fatalf("Error saving URL: %s", err)
+			log.Printf("Error saving URL: %s", err)
+		}
+	}
+
+	fmt.Println("Successfully saved all URLs to the database")
+}
 
 func RunEngine() {
 	fmt.Println("started search engine crawl...")
