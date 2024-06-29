@@ -1,6 +1,7 @@
 package main
 
 import (
+	"YeonwooSung/search-and-go/middlewares"
 	"YeonwooSung/search-and-go/routes"
 	"fmt"
 	"log"
@@ -10,7 +11,6 @@ import (
 	"time"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/joho/godotenv"
 )
 
@@ -30,8 +30,7 @@ func main() {
 		IdleTimeout: 5 * time.Second,
 	})
 
-	app.Use(compress.New())
-
+	middlewares.SetMiddlewares(app)
 	routes.SetRoutes(app)
 
 	// Start our server and listen for a shutdown
