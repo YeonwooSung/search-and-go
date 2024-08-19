@@ -51,8 +51,8 @@ github.com/jung-kurt/gofpdf v1.0.0/go.mod h1:7Id9E/uU8ce6rXgefFLlgrJj/GYY22cpxn+
 github.com/jung-kurt/gofpdf v1.0.3-0.20190309125859-24315acbbda5/go.mod h1:7Id9E/uU8ce6rXgefFLlgrJj/GYY22cpxn+r32jIOes=
 github.com/klauspost/compress v1.17.9 h1:6KIumPrER1LHsvBVuDa0r5xaG0Es51mhhB9BQB2qeMA=
 github.com/klauspost/compress v1.17.9/go.mod h1:Di0epgTjJY877eYKx5yC51cX2A2Vl2ibi7bDH9ttBbw=
-github.com/kljensen/snowball v0.9.0 h1:OpXkQBcic6vcPG+dChOGLIA/GNuVg47tbbIJ2s7Keas=
-github.com/kljensen/snowball v0.9.0/go.mod h1:OGo5gFWjaeXqCu4iIrMl5OYip9XUJHGOU5eSkPjVg2A=
+github.com/kljensen/snowball v0.10.0 h1:8qgaBLraSuUVHtGH5tJ+VdGpqgfcaE2WkswL/C3nVhY=
+github.com/kljensen/snowball v0.10.0/go.mod h1:bJcxtur1W5Qw4fVj9tk5W88zyRcGQQjqahFErdcDTHk=
 github.com/mattn/go-colorable v0.1.13 h1:fFA4WZxdEF4tXPZVKMLwD8oUnCTTo08duU7wxecdEvA=
 github.com/mattn/go-colorable v0.1.13/go.mod h1:7S9/ev0klgBDR4GtXTXX8a3vIGJpMovkB8vQcUbaXHg=
 github.com/mattn/go-isatty v0.0.16/go.mod h1:kYGgaQfpe5nmfYZH+SKPsOc2e4SrIfOl2e/yFXSvRLM=
